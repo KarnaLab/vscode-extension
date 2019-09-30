@@ -1,0 +1,19 @@
+{
+  "global": {},
+  "deployments": [
+    {
+      "src": "services",
+      "file": "lambda.zip",
+      "functionName": "avgTest",
+      "aliases": {
+        "prod": "13",
+        "dev": "fixed@update",
+        "test": "9"
+      },
+      "prune": {
+        "keep": 2,
+        "alias": true
+      }
+    }
+  ]
+}
