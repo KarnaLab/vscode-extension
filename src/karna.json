@@ -6,9 +6,10 @@
       "file": "lambda.zip",
       "functionName": "avgTest",
       "aliases": {
-        "prod": "13",
+        "prod": "fixed@update",
         "dev": "fixed@update",
-        "test": "9"
+        "test": "9",
+        "gloup": "4"
       },
       "prune": {
         "keep": 2,

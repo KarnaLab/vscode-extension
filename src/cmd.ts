@@ -13,7 +13,7 @@ const dispatchCommands = (command: string) => {
     case "Create Lambda":
       return vscode.window.showWarningMessage(create());
     case "Deploy Lambda":
-      return vscode.window.showWarningMessage(deploy());
+      return deploy();
   }
 };
 export { execute, dispatchCommands };
