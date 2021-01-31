@@ -1,24 +1,81 @@
 {
-  "name": "lambda-manager",
-  "displayName": "lambda-manager",
+  "name": "karna-vs-code-extension",
+  "displayName": "karna-vs-code-extension",
   "description": "",
-  "publisher": "aymeric",
+  "publisher": "@Karnalab",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.38.0"
+    "vscode": "^1.42.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:extension.lambdaManager"
-  ],
   "main": "./out/extension.js",
+  "activationEvents": ["onView:karna-vs-code-extension"],
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "karna",
+          "title": "Karna VSCode Extension",
+          "icon": "media/lambda.svg"
+        }
+      ]
+    },
+    "views": {
+      "karna": [
+        {
+          "id": "karna-vs-code-extension",
+          "name": "Karna VSCode Extension",
+          "contextualTitle": "Karna extension"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+            "command": "karna-vs-code-extension.refreshEntry",
+            "when": "view == karna-vs-code-extension",
+            "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "karna-vs-code-extension.uploadEntry",
+          "when": "view == karna-vs-code-extension && viewItem == alias",
+          "group": "inline"
+        },
+        {
+          "command": "karna-vs-code-extension.deleteAliasEntry",
+          "when": "view == karna-vs-code-extension && viewItem == alias",
+          "group": "inline"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "extension.lambdaManager",
-        "title": "Lambda Manager"
+        "command": "karna-vs-code-extension.refreshEntry",
+        "title": "Refresh",
+        "icon": {
+            "light": "media/sync.svg",
+            "dark": "media/sync.svg"
+        }
+      },
+      {
+        "command": "karna-vs-code-extension.uploadEntry",
+        "title": "Upload",
+        "icon": {
+          "light": "media/upload.svg",
+          "dark": "media/upload.svg"
+        }
+      },
+      {
+        "command": "karna-vs-code-extension.deleteAliasEntry",
+        "title": "Delete alias",
+        "icon": {
+            "light": "media/trash.svg",
+            "dark": "media/trash.svg"
+        }
       }
     ]
   },
@@ -35,11 +92,11 @@
     "@types/node": "^14.14.22",
     "@types/vscode": "^1.52.0",
     "glob": "^7.1.6",
-    "mocha": "^7.1.6",
     "typescript": "^4.1.3",
     "vscode-test": "^1.5.0"
   },
   "dependencies": {
+    "@types/shelljs": "^0.8.8",
     "shelljs": "^0.8.4"
   }
 }
