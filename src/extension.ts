@@ -9,8 +9,10 @@ export function activate(context: vscode.ExtensionContext) {
     'Congratulations, your extension "karna-vs-code-extension" is now active!'
   );
 
+  const TreeView = new KarnaProvider(vscode.workspace?.workspaceFolders?.[0]);
+
   vscode.window.createTreeView('karna-vs-code-extension', {
-    treeDataProvider: new KarnaProvider(vscode.workspace?.workspaceFolders?.[0])
+    treeDataProvider: TreeView
   });
 
   try {
@@ -22,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
     const uploadEntry = "karna-vs-code-extension.uploadEntry";
     const deleteAliasEntry = "karna-vs-code-extension.deleteAliasEntry";
   
-    const refreshEntryHandler = () => {};
+    const refreshEntryHandler = () => { TreeView.refresh(); };
     const deleteAliasEntryHandler = () => {};
   
     context.subscriptions.push(vscode.commands.registerCommand(refreshEntry, refreshEntryHandler));
