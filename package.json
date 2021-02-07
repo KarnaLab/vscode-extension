@@ -1,9 +1,9 @@
 {
   "name": "karna-vs-code-extension",
   "displayName": "karna-vs-code-extension",
-  "description": "",
+  "description": "VSCode Extension to manage lambda resource with Karna",
   "publisher": "@Karnalab",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.42.0"
   },
@@ -41,12 +41,12 @@
       ],
       "view/item/context": [
         {
-          "command": "karna-vs-code-extension.uploadEntry",
+          "command": "karna-vs-code-extension.deployEntry",
           "when": "view == karna-vs-code-extension && viewItem == alias",
           "group": "inline"
         },
         {
-          "command": "karna-vs-code-extension.deleteAliasEntry",
+          "command": "karna-vs-code-extension.removeAliasEntry",
           "when": "view == karna-vs-code-extension && viewItem == alias",
           "group": "inline"
         }
@@ -55,23 +55,23 @@
     "commands": [
       {
         "command": "karna-vs-code-extension.refreshEntry",
-        "title": "Refresh",
+        "title": "Synchronize",
         "icon": {
             "light": "media/sync.svg",
             "dark": "media/sync.svg"
         }
       },
       {
-        "command": "karna-vs-code-extension.uploadEntry",
-        "title": "Upload",
+        "command": "karna-vs-code-extension.deployEntry",
+        "title": "Deploy alias",
         "icon": {
           "light": "media/upload.svg",
           "dark": "media/upload.svg"
         }
       },
       {
-        "command": "karna-vs-code-extension.deleteAliasEntry",
-        "title": "Delete alias",
+        "command": "karna-vs-code-extension.removeAliasEntry",
+        "title": "Remove alias",
         "icon": {
             "light": "media/trash.svg",
             "dark": "media/trash.svg"
